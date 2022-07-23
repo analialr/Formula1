@@ -1,0 +1,8 @@
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/security/CustomUserDetails.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/EdgeServiceApplication.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/utils/PasswordEncodeUtil.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/repositories/UsersRepository.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controllers/UsersController.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/services/CustomUserDetailsService.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/models/User.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/security/SecurityConfiguration.java

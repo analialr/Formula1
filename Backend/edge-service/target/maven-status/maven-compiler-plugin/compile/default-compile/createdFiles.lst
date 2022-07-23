@@ -1,0 +1,15 @@
+com/ironhack/edgeservice/util/PasswordUtil.class
+com/ironhack/edgeservice/controller/impl/UserControllerImpl.class
+com/ironhack/edgeservice/service/impl/CustomUserDetailsService.class
+com/ironhack/edgeservice/controller/interfaces/UserController.class
+com/ironhack/edgeservice/controller/interfaces/HelloWorldController.class
+com/ironhack/edgeservice/model/User.class
+com/ironhack/edgeservice/EdgeServiceApplication.class
+com/ironhack/edgeservice/controller/dto/UserDTO.class
+com/ironhack/edgeservice/repository/UserRepository.class
+com/ironhack/edgeservice/service/interfaces/UserService.class
+com/ironhack/edgeservice/controller/impl/HelloWorldControllerImpl.class
+com/ironhack/edgeservice/controller/dto/RoleDTO.class
+com/ironhack/edgeservice/security/SecurityConfiguration.class
+com/ironhack/edgeservice/service/impl/UserServiceImpl.class
+com/ironhack/edgeservice/model/Role.class
