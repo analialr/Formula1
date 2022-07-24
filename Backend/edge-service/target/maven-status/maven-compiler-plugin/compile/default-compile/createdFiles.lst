@@ -13,5 +13,6 @@ com/ironhack/edgeservice/service/interfaces/UserService.class
 com/ironhack/edgeservice/controller/impl/EdgeControllerImpl.class
 com/ironhack/edgeservice/controller/dto/RoleDTO.class
 com/ironhack/edgeservice/security/SecurityConfiguration.class
+com/ironhack/edgeservice/model/Follow.class
 com/ironhack/edgeservice/service/impl/UserServiceImpl.class
 com/ironhack/edgeservice/model/Role.class
