@@ -1,4 +1,4 @@
-package com.ironhack.edgeservice.controller.impl;
+package com.ironhack.userserver.controller.impl;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

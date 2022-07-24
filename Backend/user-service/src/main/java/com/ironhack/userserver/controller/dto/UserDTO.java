@@ -1,6 +1,7 @@
-package com.ironhack.edgeservice.controller.dto;
+package com.ironhack.userserver.controller.dto;
 
 import lombok.Data;
+
 import java.util.Set;
 
 @Data

@@ -1,4 +1,4 @@
-package com.ironhack.edgeservice.service.impl;
+package com.ironhack.userserver.service.impl;
 
 
 import com.ironhack.edgeservice.controller.dto.RoleDTO;
@@ -7,8 +7,6 @@ import com.ironhack.edgeservice.model.Role;
 import com.ironhack.edgeservice.model.User;
 import com.ironhack.edgeservice.repository.UserRepository;
 import com.ironhack.edgeservice.service.interfaces.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,7 +18,6 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private UserRepository userRepository;
 
@@ -28,7 +25,6 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
     public UserDTO store(UserDTO userDTO) {
-        logger.info(userDTO.toString());
         User user = toModel(userDTO);
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 
