@@ -1,6 +1,7 @@
 package com.ironhack.edgeservice.controller.interfaces;
 
 
+import com.ironhack.edgeservice.controller.dto.FollowDTO;
 import com.ironhack.edgeservice.controller.dto.UserDTO;
 import com.ironhack.edgeservice.model.Follow;
 import com.ironhack.edgeservice.model.User;
@@ -12,5 +13,5 @@ public interface UserController {
     UserDTO register(UserDTO userDTO);
     List<UserDTO> findAll();
     UserDTO login(User user);
-    Follow follow(Long userId, String driverId);
+    FollowDTO follow(Long userId, String driverId);
 }

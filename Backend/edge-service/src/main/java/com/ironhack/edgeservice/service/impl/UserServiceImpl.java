@@ -65,6 +65,7 @@ public class UserServiceImpl implements UserService {
         userDTO.setUsername(user.getUsername());
         userDTO.setPassword(user.getPassword());
         userDTO.setRoles(user.getRoles().stream().map(this::roleToDTO).collect(Collectors.toSet()));
+        userDTO.setFollows(user.getFollows().stream().map(this::followToDTO).collect(Collectors.toSet()));
 
         return userDTO;
     }
@@ -76,12 +77,19 @@ public class UserServiceImpl implements UserService {
         return roleDTO;
     }
 
-    public Follow follow(Long userId, String driverId){
+    private FollowDTO followToDTO(Follow follow) {
+        FollowDTO followDTO = new FollowDTO();
+        followDTO.setDriver(follow.getDriver());
+
+        return followDTO;
+    }
+
+    public FollowDTO follow(Long userId, String driverId){
         Optional<User> user = userRepository.findById(userId);
         Follow follow = new Follow();
         follow.setUser(user.get());
         follow.setDriver(driverId);
         followRepository.save(follow);
-        return follow;
+        return followToDTO(follow);
     }
 }

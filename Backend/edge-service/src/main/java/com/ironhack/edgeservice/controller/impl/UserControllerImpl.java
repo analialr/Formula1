@@ -2,6 +2,7 @@ package com.ironhack.edgeservice.controller.impl;
 
 import com.ironhack.edgeservice.controller.dto.RoleDTO;
 import com.ironhack.edgeservice.controller.dto.UserDTO;
+import com.ironhack.edgeservice.controller.dto.FollowDTO;
 import com.ironhack.edgeservice.controller.interfaces.UserController;
 import com.ironhack.edgeservice.model.Follow;
 import com.ironhack.edgeservice.model.Role;
@@ -32,16 +33,8 @@ public class UserControllerImpl implements UserController {
 
     @PostMapping("/users/{userId}/follows/{driverId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Follow follow(@PathVariable Long userId, @PathVariable String driverId) {
-        System.out.println("---params-------");
-        System.out.println("username: "+userId);
-        System.out.println("driverId: "+driverId);
-        System.out.println("----------");
-        Follow follow = userService.follow(userId, driverId);
-        System.out.println("----follow------");
-        System.out.println("follow: "+follow.toString());
-        System.out.println("----------");
-        return follow;
+    public FollowDTO follow(@PathVariable Long userId, @PathVariable String driverId) {
+        return userService.follow(userId, driverId);
     }
 
 
