@@ -1,5 +1,6 @@
 package com.ironhack.edgeservice.controller.impl;
 
+import com.ironhack.edgeservice.client.DriverServiceClient;
 import com.ironhack.edgeservice.controller.dto.RoleDTO;
 import com.ironhack.edgeservice.controller.dto.UserDTO;
 import com.ironhack.edgeservice.controller.dto.FollowDTO;
@@ -24,6 +25,9 @@ public class UserControllerImpl implements UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private DriverServiceClient driverServiceClient;
 
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)

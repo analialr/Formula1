@@ -1,6 +1,8 @@
 package com.ironhack.edgeservice.service.impl;
 
 
+import com.ironhack.edgeservice.classes.Driver;
+import com.ironhack.edgeservice.client.DriverServiceClient;
 import com.ironhack.edgeservice.controller.dto.FollowDTO;
 import com.ironhack.edgeservice.controller.dto.RoleDTO;
 import com.ironhack.edgeservice.controller.dto.UserDTO;
@@ -16,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -32,6 +35,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private DriverServiceClient driverServiceClient;
+
 
     public UserDTO store(UserDTO userDTO) {
         logger.info(userDTO.toString());
@@ -65,7 +72,12 @@ public class UserServiceImpl implements UserService {
         userDTO.setUsername(user.getUsername());
         userDTO.setPassword(user.getPassword());
         userDTO.setRoles(user.getRoles().stream().map(this::roleToDTO).collect(Collectors.toSet()));
-        userDTO.setFollows(user.getFollows().stream().map(this::followToDTO).collect(Collectors.toSet()));
+        Set<Driver> drivers = new HashSet<>();
+        for(Follow follow : user.getFollows()){
+            drivers.add(driverServiceClient.findById(follow.getDriver()));
+        }
+        userDTO.setFollows(drivers);
+        //userDTO.setFollows(user.getFollows().stream().map(this::followToDTO).collect(Collectors.toSet()));
 
         return userDTO;
     }
