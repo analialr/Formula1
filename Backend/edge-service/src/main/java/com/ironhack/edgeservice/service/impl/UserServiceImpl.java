@@ -1,10 +1,13 @@
 package com.ironhack.edgeservice.service.impl;
 
 
+import com.ironhack.edgeservice.controller.dto.FollowDTO;
 import com.ironhack.edgeservice.controller.dto.RoleDTO;
 import com.ironhack.edgeservice.controller.dto.UserDTO;
+import com.ironhack.edgeservice.model.Follow;
 import com.ironhack.edgeservice.model.Role;
 import com.ironhack.edgeservice.model.User;
+import com.ironhack.edgeservice.repository.FollowRepository;
 import com.ironhack.edgeservice.repository.UserRepository;
 import com.ironhack.edgeservice.service.interfaces.UserService;
 import org.slf4j.Logger;
@@ -14,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -23,6 +27,8 @@ public class UserServiceImpl implements UserService {
     Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private FollowRepository followRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -68,5 +74,14 @@ public class UserServiceImpl implements UserService {
         roleDTO.setName(role.getName());
 
         return roleDTO;
+    }
+
+    public Follow follow(Long userId, String driverId){
+        Optional<User> user = userRepository.findById(userId);
+        Follow follow = new Follow();
+        follow.setUser(user.get());
+        follow.setDriver(driverId);
+        followRepository.save(follow);
+        return follow;
     }
 }

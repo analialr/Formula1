@@ -22,7 +22,7 @@ public class DriverControllerImpl implements DriverController {
 
     @Autowired
     public DriverService driverService;
-    
+
     @GetMapping("/drivers")
     @ResponseStatus(HttpStatus.OK)
     public List<Driver> findAll() {

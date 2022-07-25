@@ -19,6 +19,7 @@ public class Follow {
         private Long id;
         private String driver;
 
+
         @ManyToOne
         private User user;
 }

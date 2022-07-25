@@ -8,4 +8,5 @@ public class UserDTO {
     private String username;
     private String password;
     private Set<RoleDTO> roles;
+    private Set<FollowDTO> follows;
 }

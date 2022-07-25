@@ -9,10 +9,14 @@ com/ironhack/edgeservice/service/impl/EdgeServiceImpl.class
 com/ironhack/edgeservice/EdgeServiceApplication.class
 com/ironhack/edgeservice/controller/dto/UserDTO.class
 com/ironhack/edgeservice/repository/UserRepository.class
+com/ironhack/edgeservice/controller/impl/FollowControllerImpl.class
 com/ironhack/edgeservice/service/interfaces/UserService.class
+com/ironhack/edgeservice/controller/dto/FollowDTO.class
+com/ironhack/edgeservice/controller/interfaces/FollowController.class
 com/ironhack/edgeservice/controller/impl/EdgeControllerImpl.class
 com/ironhack/edgeservice/controller/dto/RoleDTO.class
 com/ironhack/edgeservice/security/SecurityConfiguration.class
+com/ironhack/edgeservice/repository/FollowRepository.class
 com/ironhack/edgeservice/model/Follow.class
 com/ironhack/edgeservice/service/impl/UserServiceImpl.class
 com/ironhack/edgeservice/model/Role.class
