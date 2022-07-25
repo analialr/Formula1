@@ -27,6 +27,7 @@ export class AuthService {
       null,
       username,
       password,
+      [],
       []
     );
 

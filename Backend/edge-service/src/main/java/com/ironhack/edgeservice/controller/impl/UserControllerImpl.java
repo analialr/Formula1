@@ -1,5 +1,6 @@
 package com.ironhack.edgeservice.controller.impl;
 
+import com.ironhack.edgeservice.classes.Driver;
 import com.ironhack.edgeservice.client.DriverServiceClient;
 import com.ironhack.edgeservice.controller.dto.RoleDTO;
 import com.ironhack.edgeservice.controller.dto.UserDTO;
@@ -15,7 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -61,7 +64,11 @@ public class UserControllerImpl implements UserController {
         userDTO.setUsername(user.getUsername());
         userDTO.setPassword(user.getPassword());
         userDTO.setRoles(user.getRoles().stream().map(this::roleToDTO).collect(Collectors.toSet()));
-
+        Set<Driver> drivers = new HashSet<>();
+        for(Follow follow : user.getFollows()){
+            drivers.add(driverServiceClient.findById(follow.getDriver()));
+        }
+        userDTO.setFollows(drivers);
         return userDTO;
     }
 

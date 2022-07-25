@@ -5,6 +5,7 @@ export class User {
         private _username: string,
         private _password: string,
         private _roles: object[],
+        private _follows: object[]
     ) {}
 
     public get roles(): object[] {
@@ -12,6 +13,12 @@ export class User {
     }
     public set roles(value: object[]) {
         this._roles = value;
+    }
+    public get follows(): object[] {
+        return this._follows;
+    }
+    public set follows(value: object[]) {
+        this._follows = value;
     }
     public get password(): string {
         return this._password;
@@ -38,6 +45,7 @@ export class User {
             username: this._username,
             password: this._password,
             roles: this._roles,
+            follows: this._follows
         };
     }
 }

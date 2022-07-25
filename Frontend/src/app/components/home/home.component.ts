@@ -9,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   username: string | null;
+  follows: [] | null;
 
   constructor() { 
     this.username = '';
+    this.follows = [];
   }
 
   ngOnInit(): void {
     // localStorage.getItem("currentUser");
     this.username = JSON.parse(localStorage.getItem("currentUser") as string).username;
+    this.follows = JSON.parse(localStorage.getItem("currentUser") as string).follows;
+    console.log(this.follows);
   }
 
 }
