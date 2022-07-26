@@ -23,19 +23,21 @@ export class DriverComponent implements OnInit {
   ngOnInit(): void {
     this.driverService.getDrivers().subscribe(
       result => {
-        console.log(result);
-        this.drivers = result;
+        let currentFollows:[] = JSON.parse(localStorage.getItem("currentUser") as string).follows;
+        this.drivers = result.filter((driver:any) => {
+          let r = currentFollows.find((follow:any) => {
+              return follow.driverId === driver.driverId;
+          });
+          return r === undefined;
+        });
       }
     ) 
   }
 
   follow(driverId:string) {
     let userId:number = JSON.parse(localStorage.getItem("currentUser") as string).id;
-    console.log(userId, driverId);
     this.followService.follow(userId, driverId).subscribe(
       (user: User) => {
-        console.log(user);
-        console.log(user.follows.length);
         localStorage.removeItem('currentUser');
         localStorage.setItem('currentUser', JSON.stringify(user));
       }
