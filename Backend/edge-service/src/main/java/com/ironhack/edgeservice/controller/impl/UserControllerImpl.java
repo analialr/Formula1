@@ -9,19 +9,25 @@ import com.ironhack.edgeservice.controller.interfaces.UserController;
 import com.ironhack.edgeservice.model.Follow;
 import com.ironhack.edgeservice.model.Role;
 import com.ironhack.edgeservice.model.User;
+import com.ironhack.edgeservice.repository.FollowRepository;
+import com.ironhack.edgeservice.repository.UserRepository;
 import com.ironhack.edgeservice.service.interfaces.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
+@Transactional
 @Slf4j
 @CrossOrigin(origins="http://localhost:4200")
 public class UserControllerImpl implements UserController {
@@ -30,7 +36,16 @@ public class UserControllerImpl implements UserController {
     private UserService userService;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private FollowRepository followRepository;
+
+    @Autowired
     private DriverServiceClient driverServiceClient;
+
+    @Autowired
+    private EntityManager entityManager;
 
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
@@ -40,8 +55,16 @@ public class UserControllerImpl implements UserController {
 
     @PostMapping("/users/{userId}/follows/{driverId}")
     @ResponseStatus(HttpStatus.CREATED)
-    public FollowDTO follow(@PathVariable Long userId, @PathVariable String driverId) {
-        return userService.follow(userId, driverId);
+    public UserDTO follow(@PathVariable Long userId, @PathVariable String driverId) {
+        User user = userRepository.findById(userId).get();
+        Optional<Follow> existingFollow = followRepository.findByUserAndDriver(user, driverId);
+        if (!existingFollow.isPresent()){
+            userService.follow(userId, driverId);
+            userRepository.save(user);
+            entityManager.refresh(user);
+        }
+
+        return userToDTO(user);
     }
 
 

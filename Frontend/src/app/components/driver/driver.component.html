@@ -15,7 +15,7 @@
                     <div>{{ driver["dateOfBirth"] | date:'dd-MM-yyyy'}}</div>
                     <div>{{ driver["nationality"] }}</div>
                     <div><a mat-button href='{{driver["url"]}}' target="_blank">wikipedia</a></div>
-                    <div><button mat-mini-fab color="primary"><mat-icon>bookmark</mat-icon></button></div>
+                    <div><button (click)='follow(driver["driverId"])' mat-mini-fab color="primary"><mat-icon>bookmark</mat-icon></button></div>
                 </mat-card-content>
             </mat-card>
         </li>
