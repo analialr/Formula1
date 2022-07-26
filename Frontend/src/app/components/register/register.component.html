@@ -12,14 +12,14 @@
                             <mat-label>Username</mat-label>
                             <input type="text" matInput formControlName="username" placeholder="Username...">
                             <mat-error *ngIf="usernameInput.hasError('required') && usernameInput.touched">
-                              Username is <strong>required</strong>
+                              <p>Username is <strong>required</strong></p>
                             </mat-error>
                           </mat-form-field>
                           <mat-form-field class="full-width" appearance="fill">
                             <mat-label>Password</mat-label>
                             <input type="password" matInput formControlName="password" placeholder="Passworrd...">
                             <mat-error *ngIf="passwordInput.hasError('required') && passwordInput.touched">
-                              Password is <strong>required</strong>
+                              <p>Password is <strong>required</strong></p>
                             </mat-error>
                           </mat-form-field>
                           <mat-form-field class="full-width" appearance="fill">

@@ -1,6 +1,5 @@
-<div class="container">
-    <div>
-        <a mat-button color="primary" [routerLink]="['/']">Home</a>
-        <a mat-button color="warn" (click)="logout()">Logout</a>
-    </div>
-</div>
+<ul>
+    <li><a [routerLink]="['/']" routerLinkActive="active">Home</a></li>
+    <li><a [routerLink]="['drivers']" routerLinkActive="active">Drivers</a></li>
+    <li><a (click)="logout()">Logout</a></li>
+</ul>

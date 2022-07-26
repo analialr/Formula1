@@ -28,7 +28,7 @@ export class AuthService {
       username,
       password,
       [],
-      []
+      [],
     );
 
     return this.http.post<User>(`${this.API_URL}/users`, user);
@@ -41,10 +41,9 @@ export class AuthService {
 
     return this.http.get<User>(`${this.API_URL}/login`, { headers: headers });
         
-}
+  }
 
-logout(): void {
-    // Remove user from local storage to log user out
+  logout(): void {
     localStorage.removeItem('currentUser');
-}
+  }
 }

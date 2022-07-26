@@ -1,4 +1,6 @@
-
+<mat-card-actions>
+    <app-nav-bar></app-nav-bar>
+</mat-card-actions>
 <div class="container">
         <mat-card class="card">
             <mat-card-header>
@@ -8,23 +10,17 @@
             <mat-card-content>
                 <div class="login-container">
                     <div class="login-fields">
-                       <h1>Congratulation !!</h1>
-                       <p>if you're seeing this, that means you were able to create a <br />
-                        account and successfully log in to the app</p>
-
-                        Follows
-                        <div *ngFor="let follow of follows">
-                            {{ follow["driverId"] }}
-                        </div>
-
-                    </div>
-                    <div>
-                        <img src="./assets/welcome-home.png" alt="">
+                        <h2>Follows</h2>
+                        <ul *ngFor="let follow of follows">
+                            <li>{{ follow["givenName"] }}</li>
+                            <li>{{ follow["familyName"] }}</li>
+                            <li>{{ follow["dateOfBirth"] | date:'dd-MM-yyyy'}}</li>
+                            <li>{{ follow["nationality"] }}</li>
+                            <li>{{ follow["url"] }}</li>
+                        </ul>
                     </div>
                 </div>
             </mat-card-content>
-            <mat-card-actions>
-                <app-nav-bar></app-nav-bar>
-            </mat-card-actions>
+            
         </mat-card>
 </div>

@@ -1,0 +1,24 @@
+<mat-card-actions>
+    <app-nav-bar></app-nav-bar>
+</mat-card-actions>
+
+
+<div class="container">
+    <h1>Drivers</h1>
+    <ul class="drivers-list">
+        <li class="driver" *ngFor="let driver of drivers">
+            <mat-card class="driver-card">
+                <mat-card-content>
+                    <div class="driver-card-name">
+                        {{ driver["givenName"] }} {{ driver["familyName"] }}
+                    </div>
+                    <div>{{ driver["dateOfBirth"] | date:'dd-MM-yyyy'}}</div>
+                    <div>{{ driver["nationality"] }}</div>
+                    <div><a mat-button href='{{driver["url"]}}' target="_blank">wikipedia</a></div>
+                    <div><button mat-mini-fab color="primary"><mat-icon>bookmark</mat-icon></button></div>
+                </mat-card-content>
+            </mat-card>
+        </li>
+    </ul>
+</div>
+ 
