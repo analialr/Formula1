@@ -9,7 +9,7 @@
                     <div class="driver-card-name">Name: <strong>{{ follow["givenName"] }} {{ follow["familyName"] }}</strong></div>
                     <div>Birth of date: <strong>{{ follow["dateOfBirth"] | date:'dd-MM-yyyy'}}</strong></div>
                     <div>Nationality: <strong>{{ follow["nationality"] }}</strong></div>
-                    <div><a mat-button href='{{follow["url"]}}' target="_blank">+ Info</a></div>
+                    <div><a mat-button href='{{follow["url"]}}' target="_blank"><mat-icon color="primary">open_in_new</mat-icon></a></div>
                     <div><button (click)='unfollow(follow["driverId"], i)' mat-mini-fab color="primary"><mat-icon>delete</mat-icon></button></div>
                 </mat-card-content>
                 <mat-divider></mat-divider>

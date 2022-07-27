@@ -18,9 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -43,15 +43,16 @@ public class UserServiceImpl implements UserService {
     private DriverServiceClient driverServiceClient;
 
 
+
     public UserDTO store(UserDTO userDTO) {
         logger.info(userDTO.toString());
         User user = toModel(userDTO);
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-
         // Set default profile
         user.setRoles(Set.of(new Role(null, "USER", user)));
+        //user.setFollows(new HashSet<>());
         User savedUser = userRepository.save(user);
-        savedUser.setPassword(null);
+        //savedUser.setPassword(null);
         return toDTO(savedUser);
     }
 
@@ -66,7 +67,6 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
-
         return user;
     }
 
@@ -77,8 +77,10 @@ public class UserServiceImpl implements UserService {
         userDTO.setPassword(user.getPassword());
         userDTO.setRoles(user.getRoles().stream().map(this::roleToDTO).collect(Collectors.toSet()));
         Set<Driver> drivers = new HashSet<>();
-        for(Follow follow : user.getFollows()){
-            drivers.add(driverServiceClient.findById(follow.getDriver()));
+        if (user.getFollows() != null) {
+            for (Follow follow : user.getFollows()) {
+                drivers.add(driverServiceClient.findById(follow.getDriver()));
+            }
         }
         userDTO.setFollows(drivers);
         //userDTO.setFollows(user.getFollows().stream().map(this::followToDTO).collect(Collectors.toSet()));
