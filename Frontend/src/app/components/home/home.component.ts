@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
         
         this.follows.forEach((follow:any, index:number) => {
           let first:any = result.response.find((result:any) => {
-            return result.driver.name === follow.givenName+" "+follow.familyName;
+            return result.driver.name.includes(follow.givenName) && result.driver.name.includes(follow.familyName);
           });
           if (first !== undefined) {
             this.results[follow.driverId] = first;
