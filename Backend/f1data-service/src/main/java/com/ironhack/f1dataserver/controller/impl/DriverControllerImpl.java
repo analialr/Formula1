@@ -5,6 +5,7 @@ import com.ironhack.f1dataserver.model.Driver;
 import com.ironhack.f1dataserver.repository.DriverRepository;
 import com.ironhack.f1dataserver.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class DriverControllerImpl implements DriverController {
     @GetMapping("/drivers")
     @ResponseStatus(HttpStatus.OK)
     public List<Driver> findAll() {
-        return driverRepository.findAll();
+        return driverRepository.findAll(Sort.by(Sort.Direction.DESC, "dateOfBirth"));
     }
 
     @GetMapping("/drivers/{driverId}")
