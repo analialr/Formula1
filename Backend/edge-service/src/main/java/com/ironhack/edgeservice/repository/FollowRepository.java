@@ -13,6 +13,7 @@ import java.util.Optional;
 public interface FollowRepository extends JpaRepository<Follow, Long> {
     Optional<Follow> findByUserAndDriver(User user, String driver);
 
-    //@Query(value = "DELETE * FROM follow f WHERE f.id = ?1")
+    @Modifying
+    @Query("DELETE FROM Follow f WHERE f.id = ?1")
     void deleteById(Long id);
 }

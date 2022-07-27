@@ -72,8 +72,23 @@ public class UserControllerImpl implements UserController {
     @ResponseStatus(HttpStatus.OK)
     public void unfollow(@PathVariable Long userId, @PathVariable String driverId) {
         User user = userRepository.findById(userId).get();
-        Follow follow = followRepository.findByUserAndDriver(user, driverId).get();
-        followRepository.deleteById(follow.getId());
+        Follow existingFollow = followRepository.findByUserAndDriver(user, driverId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Trainer does not exist"));
+
+/*
+        Set<Follow> follows = new HashSet<>();
+        for(Follow follow : user.getFollows()){
+            if (follow.getDriver() != driverId) {
+                follows.add(follow);
+            }
+        }
+        user.setFollows(follows);
+        userRepository.save(user);
+
+        existingFollow.setUser(null);
+        followRepository.save(existingFollow);*/
+
+        followRepository.deleteById(existingFollow.getId());
+
     }
 
 
