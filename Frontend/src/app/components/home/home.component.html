@@ -7,21 +7,21 @@
         <li class="driver" *ngFor="let follow of follows; let i = index">
             <mat-card class="driver-card">
                 <mat-card-content>
-                    <div class="driver-card-name">
-                        {{ follow["givenName"] }} {{ follow["familyName"] }}
-                    </div>
-                    <div><img src="{{ results[follow.driverId].driver.image }}"></div>
+                    <div class="driver-card-name">{{ follow["givenName"] }} {{ follow["familyName"] }}</div>
                     <div>{{ follow["dateOfBirth"] | date:'dd-MM-yyyy'}}</div>
                     <div>{{ follow["nationality"] }}</div>
                     <div><a mat-button href='{{follow["url"]}}' target="_blank">wikipedia</a></div>
                     <div><button (click)='unfollow(follow["driverId"], i)' mat-mini-fab color="primary"><mat-icon>delete</mat-icon></button></div>
-                    
                 </mat-card-content>
-                <mat-card-content>
+                <mat-card-content *ngIf="results[follow.driverId]">
+                    <img src="{{ results[follow.driverId].driver.image }}">
                     <p>Season {{ results[follow.driverId].season }}</p>
                     <p>Position {{ results[follow.driverId].position }}</p>
                     <p>Team: <img src="{{ results[follow.driverId].team.logo }}"> {{ results[follow.driverId].team.name }}</p>
                     <p>Points{{ results[follow.driverId].points }}</p>
+                </mat-card-content>
+                <mat-card-content *ngIf="!results[follow.driverId]">
+                    <p>This driver is not taking part in this {{ currentYear }} session.</p>
                 </mat-card-content>
             </mat-card>
         </li>
