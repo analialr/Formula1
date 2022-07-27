@@ -11,16 +11,33 @@ import { User } from 'src/app/models/user.model';
 export class HomeComponent implements OnInit {
 
   username: string | null;
-  follows: [];
+  follows: any[];
+  results: any[];
 
   constructor(private followService: FollowService) { 
     this.username = '';
     this.follows = [];
+    this.results = [];
   }
 
   ngOnInit(): void {
     this.username = JSON.parse(localStorage.getItem("currentUser") as string).username;
     this.follows = JSON.parse(localStorage.getItem("currentUser") as string).follows;
+    if (this.results.length === 0) {
+      this.followService.getResultsData().subscribe((result:any) => {
+        console.log("res",result.response);
+        
+        this.follows.forEach((follow:any, index:number) => {
+          let first:any = result.response.find((result:any) => {
+            return result.driver.name === follow.givenName+" "+follow.familyName;
+          });
+          if (first !== undefined) {
+            this.results[follow.driverId] = first;
+          }
+        });
+
+      });
+    }
   }
 
   unfollow(driverId:string, index:number):void {

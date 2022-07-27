@@ -2,22 +2,6 @@
     <app-nav-bar></app-nav-bar>
 </mat-card-actions>
 <div class="container">
-        <mat-card class="card">
-            <mat-card-header>
-                <mat-card-title>Welcome {{username}}</mat-card-title>
-                
-            </mat-card-header>
-            <mat-card-content>
-                <div class="login-container">
-                    <div class="login-fields">
-                        
-                    </div>
-                </div>
-            </mat-card-content>
-            
-        </mat-card>
-</div>
-<div class="container">
     <h2>Follows</h2>
     <ul class="drivers-list">
         <li class="driver" *ngFor="let follow of follows; let i = index">
@@ -26,10 +10,16 @@
                     <div class="driver-card-name">
                         {{ follow["givenName"] }} {{ follow["familyName"] }}
                     </div>
+                    <div><img src="{{ results[follow.driverId].driver.image }}"></div>
                     <div>{{ follow["dateOfBirth"] | date:'dd-MM-yyyy'}}</div>
                     <div>{{ follow["nationality"] }}</div>
                     <div><a mat-button href='{{follow["url"]}}' target="_blank">wikipedia</a></div>
                     <div><button (click)='unfollow(follow["driverId"], i)' mat-mini-fab color="primary"><mat-icon>delete</mat-icon></button></div>
+                </mat-card-content>
+                <mat-card-content>
+                    <p>Season {{ results[follow.driverId].season }}</p>
+                    <p>Position {{ results[follow.driverId].position }}</p>
+                    <p>Team: <img src="{{ results[follow.driverId].team.logo }}"> {{ results[follow.driverId].team.name }}</p>
                 </mat-card-content>
             </mat-card>
         </li>
