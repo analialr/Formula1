@@ -18,4 +18,8 @@ export class FollowService {
   follow(userId: number, driverId: string): Observable<User> {
     return this.http.post<User>(`${this.API_URL}/users/${userId}/follows/${driverId}`, {});
   }
+
+  unfollow(userId: number, driverId: string): Observable<any> {
+    return this.http.delete(`${this.API_URL}/users/${userId}/follows/${driverId}`, {});
+  }
 }

@@ -14,4 +14,5 @@ public interface UserController {
     List<UserDTO> findAll();
     UserDTO login(User user);
     UserDTO follow(Long userId, String driverId);
+    void unfollow(Long userId, String driverId);
 }

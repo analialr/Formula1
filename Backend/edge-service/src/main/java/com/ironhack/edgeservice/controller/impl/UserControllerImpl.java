@@ -18,6 +18,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.persistence.EntityManager;
 import java.util.HashSet;
@@ -65,6 +66,14 @@ public class UserControllerImpl implements UserController {
         }
 
         return userToDTO(user);
+    }
+
+    @DeleteMapping("/users/{userId}/follows/{driverId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void unfollow(@PathVariable Long userId, @PathVariable String driverId) {
+        User user = userRepository.findById(userId).get();
+        Follow follow = followRepository.findByUserAndDriver(user, driverId).get();
+        followRepository.deleteById(follow.getId());
     }
 
 

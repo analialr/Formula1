@@ -9,7 +9,7 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./driver.component.css']
 })
 export class DriverComponent implements OnInit {
-  drivers: [] | null;
+  drivers: [];
 
   constructor(
     private driverService: DriverService,
@@ -34,10 +34,11 @@ export class DriverComponent implements OnInit {
     ) 
   }
 
-  follow(driverId:string) {
+  follow(driverId:string, index:number) :void {
     let userId:number = JSON.parse(localStorage.getItem("currentUser") as string).id;
     this.followService.follow(userId, driverId).subscribe(
       (user: User) => {
+        this.drivers.splice(index, 1);
         localStorage.removeItem('currentUser');
         localStorage.setItem('currentUser', JSON.stringify(user));
       }

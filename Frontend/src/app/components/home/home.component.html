@@ -10,17 +10,28 @@
             <mat-card-content>
                 <div class="login-container">
                     <div class="login-fields">
-                        <h2>Follows</h2>
-                        <ul *ngFor="let follow of follows">
-                            <li>{{ follow["givenName"] }}</li>
-                            <li>{{ follow["familyName"] }}</li>
-                            <li>{{ follow["dateOfBirth"] | date:'dd-MM-yyyy'}}</li>
-                            <li>{{ follow["nationality"] }}</li>
-                            <li>{{ follow["url"] }}</li>
-                        </ul>
+                        
                     </div>
                 </div>
             </mat-card-content>
             
         </mat-card>
+</div>
+<div class="container">
+    <h2>Follows</h2>
+    <ul class="drivers-list">
+        <li class="driver" *ngFor="let follow of follows; let i = index">
+            <mat-card class="driver-card">
+                <mat-card-content>
+                    <div class="driver-card-name">
+                        {{ follow["givenName"] }} {{ follow["familyName"] }}
+                    </div>
+                    <div>{{ follow["dateOfBirth"] | date:'dd-MM-yyyy'}}</div>
+                    <div>{{ follow["nationality"] }}</div>
+                    <div><a mat-button href='{{follow["url"]}}' target="_blank">wikipedia</a></div>
+                    <div><button (click)='unfollow(follow["driverId"], i)' mat-mini-fab color="primary"><mat-icon>delete</mat-icon></button></div>
+                </mat-card-content>
+            </mat-card>
+        </li>
+    </ul>
 </div>
