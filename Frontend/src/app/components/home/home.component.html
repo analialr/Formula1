@@ -1,26 +1,31 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="container">
-    <h1>YOUR FOLLOWS THIS SEASON ({{currentYear}})</h1>
+    <h1>YOUR FOLLOWS</h1>
     <ul class="drivers-list">
         <li class="driver" *ngFor="let follow of follows; let i = index">
             <mat-card class="driver-card">
-                <mat-card-content>
-                    <div class="driver-card-name">{{ follow["givenName"] }} {{ follow["familyName"] }}</div>
-                    <div>{{ follow["dateOfBirth"] | date:'dd-MM-yyyy'}}</div>
-                    <div>{{ follow["nationality"] }}</div>
-                    <div><a mat-button href='{{follow["url"]}}' target="_blank">wikipedia</a></div>
+                <mat-card-content class="driver-card-common">
+                    <div class="driver-card-name">Name: <strong>{{ follow["givenName"] }} {{ follow["familyName"] }}</strong></div>
+                    <div>Birth of date: <strong>{{ follow["dateOfBirth"] | date:'dd-MM-yyyy'}}</strong></div>
+                    <div>Nationality: <strong>{{ follow["nationality"] }}</strong></div>
+                    <div><a mat-button href='{{follow["url"]}}' target="_blank">+ Info</a></div>
                     <div><button (click)='unfollow(follow["driverId"], i)' mat-mini-fab color="primary"><mat-icon>delete</mat-icon></button></div>
                 </mat-card-content>
+                <mat-divider></mat-divider>
                 <mat-card-content class="driver-season-data" *ngIf="results[follow.driverId]">
                     <img class="driver-image" src="{{ results[follow.driverId].driver.image }}" alt='{{ follow["givenName"] }} {{ follow["familyName"] }}'>
                     <img class="driver-team-logo" src="{{ results[follow.driverId].team.logo }}" alt="{{ results[follow.driverId].team.name }}">
-                    <p>Season {{ results[follow.driverId].season }}</p>
-                    <p>Current ranking position: {{ results[follow.driverId].position }}</p>
-                    <p>Points collected this season: {{ results[follow.driverId].points }}</p>
+                    
+                    <div class="driver-ranking">
+                        <p><strong>Ranking position</strong><br><span>(season {{currentYear}})</span></p>
+                        <p class="driver-season-position">{{ results[follow.driverId].position }}</p>
+                        <p class="driver-season-points">{{ results[follow.driverId].points }} points</p>
+                    </div>
+
                 </mat-card-content>
                 <mat-card-content class="driver-no-season-data" *ngIf="!results[follow.driverId]">
-                    <p>This driver is not taking part in this {{ currentYear }} session.</p>
+                    <p><strong>This driver is not taking part in this {{ currentYear }} session.</strong></p>
                 </mat-card-content>
             </mat-card>
         </li>

@@ -1,7 +1,6 @@
 
 .menu{
-	background-color: rgb(228, 228, 228);
-
+	background-color: #3f51b5;
 }
 
 .menu ul{
@@ -15,7 +14,7 @@
 }
 
 .menu ul li a{
-	color: black;
+	color: white;
 	display: block;
 	padding: 20px 20px;
 	text-decoration: none;

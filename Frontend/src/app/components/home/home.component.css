@@ -17,24 +17,69 @@ ul{
     padding: 20px;
 }
 .driver {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
-.driver-card .mat-card-content {
+.driver-card > .driver-card-common {
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
 }
 
-.driver-card .mat-card-content div {
+.driver-card > .driver-card-common > div {
     flex-grow: 2;
     text-align: left;
 }
 
-.driver-card .mat-card-content div:first-child {
+.driver-card > .driver-card-common > div:first-child {
     width: 150px;
 }
 
-.driver-card .mat-card-content div:last-child {
+.driver-card > .driver-card-common > div:last-child {
     flex-grow: 1;
     text-align: right;
+}
+
+
+.driver-season-data {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+    .driver-season-data > .driver-image {
+        height: 90px;
+        border-radius: 50%;
+        border: solid 2px #3f51b5;
+        padding: 5px;
+        box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+    }
+    .driver-season-data > .driver-team-logo {
+        height: 100px;
+    }
+    .driver-season-data > .driver-ranking {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+    }
+        .driver-season-data > .driver-ranking > .driver-season-position {
+            text-align: center;
+            font-size: xxx-large;
+            font-weight: 500;
+            padding: 12px 0;
+        }
+        .driver-season-data > .driver-ranking > .driver-season-points {
+            text-align: center;
+            font-weight: 500;
+        }
+.driver-no-season-data {
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+
+.driver > .mat-card {
+    border-top: solid 5px #3f51b5;
 }
