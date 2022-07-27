@@ -13,18 +13,20 @@ export class HomeComponent implements OnInit {
   username: string | null;
   follows: any[];
   results: any[];
+  currentYear: number;
 
   constructor(private followService: FollowService) { 
     this.username = '';
     this.follows = [];
     this.results = [];
+    this.currentYear = new Date().getFullYear();
   }
 
   ngOnInit(): void {
     this.username = JSON.parse(localStorage.getItem("currentUser") as string).username;
     this.follows = JSON.parse(localStorage.getItem("currentUser") as string).follows;
     if (this.results.length === 0) {
-      this.followService.getResultsData().subscribe((result:any) => {
+      this.followService.getResultsData(this.currentYear).subscribe((result:any) => {
         console.log("res",result.response);
         
         this.follows.forEach((follow:any, index:number) => {

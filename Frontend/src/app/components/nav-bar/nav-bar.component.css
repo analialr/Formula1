@@ -21,6 +21,6 @@
 	text-decoration: none;
 }
 
-.menu ul li:hover{
+.menu ul li a:hover{
 	background-color: #42B881;
 }

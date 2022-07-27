@@ -2,7 +2,7 @@
     <app-nav-bar></app-nav-bar>
 </mat-card-actions>
 <div class="container">
-    <h2>Follows</h2>
+    <h1>YOUR FOLLOWS THIS SEASON ({{currentYear}})</h1>
     <ul class="drivers-list">
         <li class="driver" *ngFor="let follow of follows; let i = index">
             <mat-card class="driver-card">
@@ -15,13 +15,26 @@
                     <div>{{ follow["nationality"] }}</div>
                     <div><a mat-button href='{{follow["url"]}}' target="_blank">wikipedia</a></div>
                     <div><button (click)='unfollow(follow["driverId"], i)' mat-mini-fab color="primary"><mat-icon>delete</mat-icon></button></div>
+                    
                 </mat-card-content>
                 <mat-card-content>
                     <p>Season {{ results[follow.driverId].season }}</p>
                     <p>Position {{ results[follow.driverId].position }}</p>
                     <p>Team: <img src="{{ results[follow.driverId].team.logo }}"> {{ results[follow.driverId].team.name }}</p>
+                    <p>Points{{ results[follow.driverId].points }}</p>
                 </mat-card-content>
             </mat-card>
         </li>
     </ul>
 </div>
+
+
+<!-- <mat-card class="example-card">
+    <mat-card-title-group *ngFor="let follow of follows; let i = index">
+      <mat-card-title>{{ follow["givenName"] }} {{ follow["familyName"] }}</mat-card-title>
+      <img mat-card-md-image src="{{ results[follow.driverId].driver.image }}">
+    </mat-card-title-group>
+    <mat-card-content>
+    
+    </mat-card-content>
+  </mat-card> -->
