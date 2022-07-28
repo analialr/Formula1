@@ -6,6 +6,9 @@
 .driver {
     margin-bottom: 10px;
 }
+.driver-card {
+    border-left: solid 5px #ff4081;
+}
 .driver-card .mat-card-content {
     display: flex;
     justify-content: space-evenly;

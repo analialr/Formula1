@@ -7,7 +7,7 @@
             <mat-card class="driver-card">
                 <mat-card-content>
                     <div class="driver-card-name">
-                        {{ driver["givenName"] }} {{ driver["familyName"] }}
+                        <strong>{{ driver["givenName"] }} {{ driver["familyName"] }}</strong>
                     </div>
                     <div>{{ driver["dateOfBirth"] | date:'dd-MM-yyyy'}}</div>
                     <div>{{ driver["nationality"] }}</div>

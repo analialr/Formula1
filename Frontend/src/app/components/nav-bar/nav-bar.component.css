@@ -21,5 +21,7 @@
 }
 
 .menu ul li a:hover{
-	background-color: lightgrey;
+	background-color: #ff4081;
+	color: #3f51b5;
+
 }

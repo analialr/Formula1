@@ -1,0 +1,28 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container" *ngIf="race != null">
+    <mat-card class="race-info">
+        <h2>Last race (#{{ race.round }}): {{race.date}}</h2>
+        <h1><a href="{{race.url}}" target="_blank">{{ race.raceName }} {{ race.season}}</a></h1>
+        <a href="{{race.Circuit.url}}" target="_blank">{{ race.Circuit.circuitName }} <span>{{race.Circuit.Location.locality}}, {{race.Circuit.Location.country}}</span></a>
+    </mat-card>
+    
+
+    <div class="results">
+        <mat-card class="result" *ngFor="let result of race.Results; let i = index">
+            <div class="position">#{{ result.position }}</div>
+            <ul class="team">
+                <li>Driver: <strong>#{{ result.Driver.permanentNumber }} - <a target="_blank" href="{{ result.Driver.url }}">{{ result.Driver.givenName }} {{ result.Driver.familyName }}</a> ({{ result.Driver.nationality }})</strong></li>
+                <li>Constructor: <strong><a target="_blank" href="{{ result.Constructor.url }}">{{ result.Constructor.name }}</a> ({{ result.Constructor.nationality }})</strong></li>
+            </ul>
+            <ul class="details">
+                <li>Earned points: <strong>{{ result.points }}</strong></li>
+                <li>Grid position: <strong>{{ result.grid }}</strong></li>
+                <li>Status: <strong>{{ result.status }}</strong></li>
+                <li *ngIf='(result.status === "finished")'>Time: <strong>{{result.Time.time}}</strong></li>
+                <li *ngIf='(result.status === "finished")'>Fastest Lap: <strong>{{result.FastestLap.Time.time}} (position: {{result.FastestLap.rank}} - lap: {{result.FastestLap.lap}})</strong></li>
+            </ul>
+        </mat-card>
+    </div>
+
+</div>

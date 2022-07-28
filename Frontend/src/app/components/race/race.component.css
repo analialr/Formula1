@@ -1,0 +1,62 @@
+.result {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-left: solid 5px #ff4081;
+
+}
+
+.result .position {
+    font-size: 80px;
+    font-weight: 1000;
+    flex-grow: 1;
+    color: #3f51b5;
+    width: 170px;
+    text-align: center;
+    padding-right: 50px;
+}
+.result .team {
+    flex-grow: 2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: medium;
+}
+.result .team a{
+    text-decoration: none;
+    color: #3f51b5;
+}
+.result .details {
+    flex-grow: 2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.race-info {
+    margin-bottom: 50px;
+
+}
+
+.race-info > h2 {
+    font-size: initial;
+    font-weight: 600;
+    margin: 0;
+}
+
+.race-info > h1 {
+    margin-bottom: 0;
+}
+
+.race-info > h1 > a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+.race-info > a {
+    text-decoration: none;
+
+}

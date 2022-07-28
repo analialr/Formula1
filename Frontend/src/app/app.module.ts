@@ -17,6 +17,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { DriverComponent } from './components/driver/driver.component';
+import { RaceComponent } from './components/race/race.component';
 
 
 
@@ -28,7 +29,8 @@ import { DriverComponent } from './components/driver/driver.component';
     LoginComponent,
     RegisterComponent,
     NavBarComponent,
-    DriverComponent
+    DriverComponent,
+    RaceComponent
   ],
   imports: [
     BrowserModule,
