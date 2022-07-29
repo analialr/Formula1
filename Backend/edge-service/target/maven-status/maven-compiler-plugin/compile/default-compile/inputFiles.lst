@@ -1,10 +1,14 @@
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/interfaces/RaceController.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/service/interfaces/UserService.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/AverageSpeedDTO.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/impl/UserControllerImpl.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/repository/FollowRepository.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/LocationDTO.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/TimeDTO.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/impl/EdgeControllerImpl.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/service/interfaces/EdgeService.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/impl/RaceControllerImpl.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/ResultDTO.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/client/DriverServiceClient.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/security/SecurityConfiguration.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/model/Role.java
@@ -12,6 +16,8 @@
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/FollowDTO.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/UserDTO.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/interfaces/EdgeController.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/FastestLapDTO.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/DriverDTO.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/client/RaceServiceClient.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/impl/DriverControllerImpl.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/model/Follow.java
@@ -23,6 +29,8 @@
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/EdgeServiceApplication.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/classes/Driver.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/util/PasswordUtil.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/ConstructorDTO.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/interfaces/UserController.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/service/impl/CustomUserDetailsService.java
+/Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/controller/dto/CircuitDTO.java
 /Users/Analia/Java/Formula1/Backend/edge-service/src/main/java/com/ironhack/edgeservice/repository/UserRepository.java

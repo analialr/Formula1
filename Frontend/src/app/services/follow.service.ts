@@ -25,7 +25,7 @@ export class FollowService {
 
   getResultsData(currentYear:number) {
     let headers = new HttpHeaders()
-    .set('X-RapidAPI-Key', '78c83e8d62msh3cfab604663e8d0p1e5261jsnd0f47d777da0')
+    .set('X-RapidAPI-Key', '')
     .set('X-RapidAPI-Host', 'api-formula-1.p.rapidapi.com');
     return this.http.get<any>("https://api-formula-1.p.rapidapi.com/rankings/drivers?season="+currentYear, { headers: headers });
   }
